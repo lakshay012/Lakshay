@@ -92,7 +92,7 @@
         <div class="lg:col-span-2">
             <div class="main-content w-full">
                 <nav class="p-6 border-b" style="border-color: var(--border-color);">
-                    <ul class="flex flex-wrap justify-center lg:justify-end gap-x-6 gap-y-2">
+                    <ul class="flex justify-center lg:justify-end space-x-6">
                         <li><a href="#about" class="nav-link" data-page="about">About</a></li>
                         <li><a href="#resume" class="nav-link" data-page="resume">Resume</a></li>
                         <li><a href="#projects" class="nav-link" data-page="projects">Projects</a></li>
@@ -104,7 +104,8 @@
                     
                     <section id="about" class="page-section">
                         <h2 class="text-3xl font-bold mb-6 text-white border-b-4 inline-block pb-2" style="border-color: var(--primary);">About Me</h2>
-                        <p class="text-base md:text-lg mb-8 leading-relaxed" style="color: var(--text-secondary);">
+                        
+                        <p class="text-lg mb-8 leading-relaxed" style="color: var(--text-secondary);">
                             I am a detail-oriented Data Analyst passionate about transforming raw data into actionable insights. With a strong foundation in data cleaning, analysis, and visualization, I leverage tools like Python (Pandas, NumPy), SQL, and Google Looker Studio to uncover trends and tell compelling stories with data.
                         </p>
 
@@ -308,7 +309,7 @@
                         <!-- SUCCESS POPUP -->
                         <div id="successPopup"
                             class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden">
-                            <div class="bg-white text-black rounded-xl p-8 max-w-md w-full mx-4 shadow-xl text-center"></div>
+                            <div class="bg-white text-black rounded-xl p-8 max-w-md w-full shadow-xl text-center">
                                 <h3 class="text-2xl font-bold mb-3">Message Sent ✔</h3>
                                 <p class="text-gray-700 mb-6">Thank you for reaching out. I’ll get back to you soon!</p>
                                 <button onclick="closePopup()"
@@ -335,8 +336,6 @@
                     </div>
                 </div>
                     </section>
-
-
                 </div>
             </div>
         </div>
