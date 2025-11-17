@@ -1,0 +1,231 @@
+/* === NEW STYLES PROVIDED BY USER === */
+:root {
+    --bg-color: #0f0f0f;
+    --bg-secondary-color: #181818;
+    --card-glass: rgba(255, 255, 255, 0.04);
+    --border-color: rgba(255, 255, 255, 0.08);
+    --text-color: #f5f5f5;
+    --text-secondary: #b3b3b3;
+    --primary: #7c3aed;
+    --primary-light: #9d5dfc;
+}
+
+body {
+     /* This will be covered by Vanta, but it's a good fallback */
+     background-color: var(--bg-color); 
+     color: var(--text-color);
+     font-family: "Inter", sans-serif;
+     transition: color 0.3s;
+}
+
+#vanta-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+/* Smooth Container */
+.glass-card {
+    background: var(--card-glass);
+    border: 1px solid var(--border-color);
+    border-radius: 1.7rem;
+    backdrop-filter: blur(12px);
+    transition: 0.3s ease;
+}
+
+/* Hover Glow */
+.glass-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 14px rgba(124, 58, 237, 0.2);
+    transform: translateY(-4px);
+}
+
+/* Main content panel */
+.main-content {
+    background: var(--bg-secondary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 1.7rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Kept shadow */
+}
+
+/* Sidebar Fix */
+@media (max-width: 1024px) {
+    /* This targets the div holding the profile image, name, and title */
+    .sidebar-profile-info {
+        text-align: center !important;
+        align-items: center !important;
+    }
+}
+
+/* Buttons Improved */
+.btn-purple {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    padding: 0.9rem 1.2rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    transition: 0.25s;
+    width: 100%;
+}
+.btn-purple:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.btn-dark {
+    background: #2a2a2a;
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 0.9rem 1.2rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    transition: 0.25s;
+    width: 100%;
+}
+.btn-dark:hover {
+    background: #3a3a3a;
+    transform: translateY(-2px);
+}
+
+/* Card Hover */
+.project-card {
+    transition: 0.3s;
+    border: 1px solid var(--border-color);
+    /* Removed glass-card hover logic, as this is more specific */
+}
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary);
+}
+
+/* Images rounded */
+.project-card img {
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 1.7rem 1.7rem 0 0; 
+}
+
+/* Navigation improved */
+.nav-link {
+    color: var(--text-secondary); /* Use text-secondary */
+    font-weight: 500; /* Adjusted from medium */
+    padding-bottom: 6px;
+    border-bottom: 2px solid transparent;
+    transition: 0.25s;
+}
+.nav-link:hover {
+    color: var(--primary-light);
+    border-bottom-color: var(--primary-light);
+}
+.nav-link.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+    font-weight: 600; /* Make active link bold */
+}
+
+/* Scroll reveal smooth */
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: all 0.7s ease;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === END NEW STYLES === */
+
+/* Original Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary-color);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-light);
+}
+
+/* Section transition */
+.page-section {
+    display: none;
+    animation: fadeIn 0.6s ease-in-out;
+}
+.page-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Timeline */
+.timeline-item {
+    position: relative;
+    padding-left: 2.5rem; /* 40px */
+    padding-bottom: 2rem; /* 32px */
+    border-left: 2px solid var(--border-color);
+}
+.timeline-item:last-child {
+    border-left-color: transparent;
+    padding-bottom: 0;
+}
+.timeline-icon {
+    position: absolute;
+    left: -14px; /* (24px icon width + 2px border) / 2 */
+    top: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-light);
+    border-radius: 50%;
+    color: white;
+    box-shadow: 0 0 0 4px var(--bg-secondary-color);
+}
+.timeline-date {
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem; /* 4px */
+}
+.timeline-title {
+    font-size: 1.125rem; /* 18px */
+    font-weight: 600;
+    margin-bottom: 0.5rem; /* 8px */
+    color: var(--text-color);
+}
+.timeline-text {
+    font-size: 0.95rem; /* 15px */
+    color: var(--text-secondary);
+}
+
+/* links */
+/* === Social Icons (Contact Page) === */
+.social-icon {
+    font-size: 2rem; /* 32px */
+    color: var(--text-secondary);
+    transition: all 0.25s ease;
+}
+
+.social-icon:hover {
+    color: var(--primary);
+    transform: translateY(-4px);
+}
