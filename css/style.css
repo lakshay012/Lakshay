@@ -229,3 +229,64 @@ body {
     color: var(--primary);
     transform: translateY(-4px);
 }
+
+/* -----------------skills */
+/* === SKILL TAGS ANIMATION === */
+
+.skill-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05); /* Very subtle background */
+    border: 1px solid var(--border-color);
+    border-radius: 9999px; /* Makes it pill-shaped */
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: default;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth springy transition */
+}
+
+.skill-tag:hover {
+    background: var(--primary); /* Turns purple on hover */
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-5px) scale(1.05); /* Moves up and grows slightly */
+    box-shadow: 0 5px 15px rgba(124, 58, 237, 0.4); /* Glowing shadow */
+}
+
+/* ---------------------sort by  */
+/* === FILTER BUTTONS === */
+.filter-btn {
+    padding: 0.5rem 1.2rem;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 2rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+/* Animation for filtering */
+@keyframes popIn {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-pop {
+    animation: popIn 0.4s ease-out forwards;
+}
+/* ---------------------------------sort by end */

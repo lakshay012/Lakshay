@@ -62,4 +62,37 @@ document.addEventListener('DOMContentLoaded', () => {
     observerElements.forEach(el => {
         observer.observe(el);
     });
+
+
+// /-------------------------sort by---------------------
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectItems = document.querySelectorAll('.project-item');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // 1. Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // 2. Add active class to clicked button
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            projectItems.forEach(item => {
+                // Get the categories for this item (e.g. "python-ml sql")
+                const category = item.getAttribute('data-category');
+
+                // Check if we should show this item
+                if (filterValue === 'all' || (category && category.includes(filterValue))) {
+                    item.style.display = 'block';
+                    // Add animation for smooth appearance
+                    item.classList.add('animate-pop');
+                    // Remove animation class after it plays so it can replay later
+                    setTimeout(() => item.classList.remove('animate-pop'), 400);
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+
 });
