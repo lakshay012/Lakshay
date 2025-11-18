@@ -1,4 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
+    
+// loader
+    const preloader = document.getElementById('preloader');
+    
+    if (preloader) {
+        window.addEventListener('load', () => {
+            // Keep the loader for 2 seconds so the animation is visible
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+                
+                // Remove it from the layout after the fade finishes (0.5s)
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500); 
+            }, 2000); 
+        });
+    }
+    // ==========================================
+
+
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.page-section');
     const observerElements = document.querySelectorAll('.reveal');
@@ -64,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-// /-------------------------sort by---------------------
+    // --- Project Sort/Filter ---
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectItems = document.querySelectorAll('.project-item');
 

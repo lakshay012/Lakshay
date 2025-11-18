@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
         minWidth: 200.00,
         scale: 1.00,
         scaleMobile: 1.00,
-        color: 0x7c3aed, // 2. Changed to your purple theme color
-        backgroundColor: 0x0f0f0f // 3. Changed to your dark background color
+        color: 0x7c3aed, 
+        backgroundColor: 0x0f0f0f 
 
     });
 });
