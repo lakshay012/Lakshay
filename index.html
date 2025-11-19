@@ -294,81 +294,120 @@
                         </div> 
                         <!-- sort by end  -->
 
-                        <!-- projects strat  -->
+                                            <!-- projects strat  -->
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            
-                            <a href="https://github.com/lakshay012/Disease_Prediction_And_Medicine_Recommendation_System" 
-                               target="_blank" 
-                               class="block project-item" 
-                               data-category="python-ml">
-                                <div class="glass-card project-card overflow-hidden reveal h-full">
-                                    <img src="image/med.jpeg" alt="Healthcare App - Disease Prediction System" class="w-full h-48 object-cover">
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-semibold text-white mb-2">Disease Prediction System</h3>
-                                        <p class="text-sm" style="color: var(--text-secondary);">Healthcare app to predict diseases using ML and recommend personalized medicines.</p>
-                                        <span class="text-xs text-purple-300 mt-3 block">#Python #ML</span>
+                                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                            
+                        <div class="project-item" data-category="python-ml">
+                            <div class="glass-card project-card overflow-hidden reveal h-full flex flex-col">
+                                <img src="image/med.jpeg" alt="Disease Prediction" class="w-full h-48 object-cover">
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-semibold text-white mb-2">Disease Prediction System</h3>
+                                    <p class="text-sm line-clamp-3" style="color: var(--text-secondary);">Healthcare app to predict diseases using ML and recommend personalized medicines.</p>
+
+                                    <div class="mt-auto pt-4">
+                                        <button class="btn-read-more" 
+                                            onclick="openModal(this)"
+                                            data-image="image/med.jpeg"
+                                            data-title="Disease Prediction System"
+                                            data-desc="A comprehensive healthcare application designed to predict potential diseases based on user symptoms using Machine Learning algorithms. The system also suggests personalized medicine recommendations."
+                                            data-tech="Python, Machine Learning, Pandas, NumPy"
+                                            data-link="https://github.com/lakshay012/Disease_Prediction_And_Medicine_Recommendation_System">
+                                            Read More <ion-icon name="arrow-forward-outline"></ion-icon>
+                                        </button>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+                        </div>
+                    
+                        <div class="project-item" data-category="web">
+                            <div class="glass-card project-card overflow-hidden reveal h-full flex flex-col">
+                                <img src="image/crowd.jpeg" alt="Web3 Crowdfunding" class="w-full h-48 object-cover">
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-semibold text-white mb-2">Web3 Crowdfunding</h3>
+                                    <p class="text-sm line-clamp-3" style="color: var(--text-secondary);">A decentralized crowdfunding platform built with Thirdweb, custom chatbot assistant.</p>
 
-                            <a href="https://github.com/lakshay012/crowd-funding" 
-                               target="_blank" 
-                               class="block project-item" 
-                               data-category="web">
-                                <div class="glass-card project-card overflow-hidden reveal h-full">
-                                    <img src="image/crowd.jpeg" alt="Crowdfunding platform" class="w-full h-48 object-cover">
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-semibold text-white mb-2">Web3 Crowdfunding</h3>
-                                        <p class="text-sm" style="color: var(--text-secondary);">A decentralized crowdfunding platform built with Thirdweb, custom chatbot assistant.</p>
-                                        <span class="text-xs text-purple-300 mt-3 block">#React #Web3</span>
+                                    <div class="mt-auto pt-4">
+                                        <button class="btn-read-more" 
+                                            onclick="openModal(this)"
+                                            data-image="image/crowd.jpeg"
+                                            data-title="Web3 Crowdfunding Platform"
+                                            data-desc="A decentralized application (DApp) allowing users to create campaigns and donate using cryptocurrency. Built with Thirdweb for smart contract interaction and includes a custom chatbot."
+                                            data-tech="React.js, Thirdweb, Solidity, Web3"
+                                            data-link="https://github.com/lakshay012/crowd-funding">
+                                            Read More <ion-icon name="arrow-forward-outline"></ion-icon>
+                                        </button>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+                        </div>
+                    
+                        <div class="project-item" data-category="python-ml sql">
+                            <div class="glass-card project-card overflow-hidden reveal h-full flex flex-col">
+                                <img src="image/cust.jpeg" alt="Customer Analysis" class="w-full h-48 object-cover">
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-semibold text-white mb-2">Customer Behavior Analysis</h3>
+                                    <p class="text-sm line-clamp-3" style="color: var(--text-secondary);">Analytics pipeline (Python, PostgreSQL, Metabase) to analyze shopping lucid and insights data.</p>
 
-                            <a href="https://github.com/lakshay012/Customer_Shopping_Behavior_Analysis" 
-                               target="_blank" 
-                               class="block project-item" 
-                               data-category="python-ml sql">
-                                <div class="glass-card project-card overflow-hidden reveal h-full">
-                                    <img src="image/cust.jpeg" alt="Customer Behavior Analysis Dashboard" class="w-full h-48 object-cover">
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-semibold text-white mb-2">Customer Behavior Analysis</h3>
-                                        <p class="text-sm" style="color: var(--text-secondary);">Analytics pipeline (Python, PostgreSQL, Metabase) to analyze shopping lucid and insights data.</p>
-                                        <span class="text-xs text-purple-300 mt-3 block">#Python #SQL</span>
+                                    <div class="mt-auto pt-4">
+                                        <button class="btn-read-more" 
+                                            onclick="openModal(this)"
+                                            data-image="image/cust.jpeg"
+                                            data-title="Customer Behavior Analysis"
+                                            data-desc="An end-to-end analytics pipeline designed to understand customer shopping patterns. Data is processed in Python, stored in PostgreSQL, and visualized using Metabase."
+                                            data-tech="Python, PostgreSQL, Metabase, SQL"
+                                            data-link="https://github.com/lakshay012/Customer_Shopping_Behavior_Analysis">
+                                            Read More <ion-icon name="arrow-forward-outline"></ion-icon>
+                                        </button>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+                        </div>
+                    
+                        <div class="project-item" data-category="viz">
+                            <div class="glass-card project-card overflow-hidden reveal h-full flex flex-col">
+                                <img src="image/sales.png" alt="Sales Report" class="w-full h-48 object-cover">
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-semibold text-white mb-2">Sales Report Analysis</h3>
+                                    <p class="text-sm line-clamp-3" style="color: var(--text-secondary);">Analyzed sales data using Excel & Google Looker Studio to find revenue trends.</p>
 
-                            <a href="https://github.com/lakshay012/ABC_Sales_report_analysis" 
-                               target="_blank" 
-                               class="block project-item" 
-                               data-category="viz">
-                                <div class="glass-card project-card overflow-hidden reveal h-full">
-                                    <img src="image/sales.png" alt="Sales Report Analysis Chart" class="w-full h-48 object-cover">
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-semibold text-white mb-2">Sales Report Analysis</h3>
-                                        <p class="text-sm" style="color: var(--text-secondary);">Analyzed sales data using Excel & Google Looker Studio to find revenue trends.</p>
-                                        <span class="text-xs text-purple-300 mt-3 block">#LookerStudio #Excel</span>
+                                    <div class="mt-auto pt-4">
+                                        <button class="btn-read-more" 
+                                            onclick="openModal(this)"
+                                            data-image="image/sales.png"
+                                            data-title="Sales Report Analysis"
+                                            data-desc="A detailed visual analysis of sales data. This project focuses on identifying key revenue drivers, seasonal trends, and underperforming regions using advanced dashboarding techniques."
+                                            data-tech="Google Looker Studio, MS Excel, Data Viz"
+                                            data-link="https://github.com/lakshay012/ABC_Sales_report_analysis">
+                                            Read More <ion-icon name="arrow-forward-outline"></ion-icon>
+                                        </button>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+                        </div>
+                        <div class="project-item" data-category="web">
+                            <div class="glass-card project-card overflow-hidden reveal h-full flex flex-col">
+                                <img src="image/port.jpg" alt="Portfolio" class="w-full h-48 object-cover">
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-semibold text-white mb-2">Personal Portfolio</h3>
+                                    <p class="text-sm line-clamp-3" style="color: var(--text-secondary);">This is a fully responsive personal portfolio website built using HTML, CSS, and JavaScript.</p>
 
-                            <a href="https://github.com/lakshay012/Lakshay" 
-                               target="_blank" 
-                               class="block project-item" 
-                               data-category="web">
-                                <div class="glass-card project-card overflow-hidden reveal h-full">
-                                    <img src="image/port.jpg" alt="Portfolio" class="w-full h-48 object-cover">
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-semibold text-white mb-2">Portfolio</h3>
-                                        <p class="text-sm" style="color: var(--text-secondary);">This is a fully responsive personal portfolio website, responsive for all devices, built using HTML, CSS, and JavaScript.</p>
-                                        <span class="text-xs text-purple-300 mt-3 block">#HTML #CSS #JS</span>
+                                    <div class="mt-auto pt-4">
+                                        <button class="btn-read-more" 
+                                            onclick="openModal(this)"
+                                            data-image="image/port.jpg"
+                                            data-title="Personal Portfolio Website"
+                                            data-desc="You are looking at it! A fully responsive, dark-themed portfolio website featuring 3D backgrounds, glassmorphism design, and interactive project galleries."
+                                            data-tech="HTML5, CSS3, JavaScript, Tailwind, Vanta.js"
+                                            data-link="https://github.com/lakshay012/Lakshay">
+                                            Read More <ion-icon name="arrow-forward-outline"></ion-icon>
+                                        </button>
                                     </div>
                                 </div>
-                            </a>
-
-                        </div>      
+                            </div>
+                        </div>
+                    
+</div>      
                     </section>
                     
                     <section id="contact" class="page-section">
@@ -481,6 +520,36 @@
         popup.classList.add("hidden");
     }
 </script>
+ <div id="projectModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-4">
+    <div class="modal-content relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-[#181818] border border-purple-600 rounded-2xl shadow-2xl">
+        
+        <button onclick="closeModal()" class="close-modal absolute top-4 right-4 w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-purple-600 transition z-50">
+            <ion-icon name="close-outline" class="text-2xl"></ion-icon>
+        </button>
+
+        <div class="w-full h-64 relative">
+            <img id="modalImage" src="" alt="Project" class="w-full h-full object-cover rounded-t-2xl">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#181818] to-transparent"></div>
+        </div>
+
+        <div class="p-8">
+            <h2 id="modalTitle" class="text-3xl font-bold text-white mb-4">Title</h2>
+            <div id="modalTech" class="flex flex-wrap gap-2 mb-6"></div>
+            
+            <div class="space-y-4 text-gray-300 leading-relaxed mb-8">
+                <h4 class="text-purple-400 font-semibold uppercase text-sm tracking-wider">Description</h4>
+                <p id="modalDesc">Description text...</p>
+            </div>
+
+            <div class="pt-6 border-t border-gray-700">
+                <a id="modalLink" href="#" target="_blank" class="btn-purple w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-purple-600 text-white font-semibold hover:bg-purple-700 transition">
+                    <ion-icon name="logo-github" class="text-xl"></ion-icon>
+                    View Source Code
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
     
 </body>

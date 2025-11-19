@@ -1,57 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-// loader
+    // --- 1. LOADER ---
     const preloader = document.getElementById('preloader');
-    
     if (preloader) {
         window.addEventListener('load', () => {
-            // Keep the loader for 2 seconds so the animation is visible
             setTimeout(() => {
                 preloader.classList.add('fade-out');
-                
-                // Remove it from the layout after the fade finishes (0.5s)
-                setTimeout(() => {
-                    preloader.style.display = 'none';
-                }, 500); 
-            }, 2000); 
+                setTimeout(() => { preloader.style.display = 'none'; }, 500);
+            }, 2000);
         });
     }
-    // ==========================================
 
-
+    // --- 2. NAVIGATION ---
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.page-section');
     const observerElements = document.querySelectorAll('.reveal');
 
-    // --- Tab Navigation ---
     function showPage(pageId) {
-        sections.forEach(section => {
-            section.classList.remove('active');
-        });
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-        });
+        sections.forEach(sec => sec.classList.remove('active'));
+        navLinks.forEach(link => link.classList.remove('active'));
 
         const activeSection = document.getElementById(pageId);
         const activeLink = document.querySelector(`.nav-link[data-page="${pageId}"]`);
 
-        if (activeSection) {
-            activeSection.classList.add('active');
-        }
-        if (activeLink) {
-            activeLink.classList.add('active');
-        }
+        if (activeSection) activeSection.classList.add('active');
+        if (activeLink) activeLink.classList.add('active');
     }
 
-    // Set default page
     let initialPage = 'about';
-    // Check hash on load
     if (window.location.hash) {
         const pageId = window.location.hash.substring(1);
-        // Check if the element exists before setting it
-        if (document.getElementById(pageId)) {
-            initialPage = pageId;
-        }
+        if (document.getElementById(pageId)) initialPage = pageId;
     }
     showPage(initialPage);
     
@@ -59,54 +37,38 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const pageId = e.target.getAttribute('data-page');
-            window.location.hash = pageId; // Set hash for bookmarking
+            window.location.hash = pageId; 
             showPage(pageId);
         });
     });
 
-    // --- Scroll Animations ---
+    // --- 3. SCROLL ANIMATION ---
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                // Add a staggered delay
-                setTimeout(() => {
-                    entry.target.classList.add('active');
-                }, index * 100); 
+                setTimeout(() => { entry.target.classList.add('active'); }, index * 100);
                 observer.unobserve(entry.target);
             }
         });
-    }, {
-        threshold: 0.1
-    });
+    }, { threshold: 0.1 });
 
-    observerElements.forEach(el => {
-        observer.observe(el);
-    });
+    observerElements.forEach(el => observer.observe(el));
 
-
-    // --- Project Sort/Filter ---
+    // --- 4. PROJECT FILTERING ---
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectItems = document.querySelectorAll('.project-item');
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // 1. Remove active class from all buttons
             filterBtns.forEach(b => b.classList.remove('active'));
-            // 2. Add active class to clicked button
             btn.classList.add('active');
-
             const filterValue = btn.getAttribute('data-filter');
 
             projectItems.forEach(item => {
-                // Get the categories for this item (e.g. "python-ml sql")
                 const category = item.getAttribute('data-category');
-
-                // Check if we should show this item
                 if (filterValue === 'all' || (category && category.includes(filterValue))) {
                     item.style.display = 'block';
-                    // Add animation for smooth appearance
                     item.classList.add('animate-pop');
-                    // Remove animation class after it plays so it can replay later
                     setTimeout(() => item.classList.remove('animate-pop'), 400);
                 } else {
                     item.style.display = 'none';
@@ -114,5 +76,87 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+});
 
+// =============================================================
+//  MODAL FUNCTIONS (GLOBAL SCOPE)
+// =============================================================
+
+window.openModal = function(element) {
+    console.log("Open Modal Clicked!"); // DEBUG CHECK
+
+    // Get the elements dynamically when clicked
+    const modal = document.getElementById('projectModal');
+    const modalImg = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalTech = document.getElementById('modalTech');
+    const modalLink = document.getElementById('modalLink');
+
+    // Safety Check: Does the modal exist in HTML?
+    if (!modal) {
+        alert("Error: Modal HTML not found! Did you paste the HTML code at the bottom of index.html?");
+        return;
+    }
+
+    // 1. Get data from button
+    const img = element.getAttribute('data-image');
+    const title = element.getAttribute('data-title');
+    const desc = element.getAttribute('data-desc');
+    const tech = element.getAttribute('data-tech');
+    const link = element.getAttribute('data-link');
+
+    // 2. Fill Content
+    if(modalImg) modalImg.src = img;
+    if(modalTitle) modalTitle.innerText = title;
+    if(modalDesc) modalDesc.innerText = desc;
+    if(modalLink) modalLink.href = link;
+
+    // 3. Create Tech Tags
+    if(modalTech) {
+        modalTech.innerHTML = ''; 
+        if(tech) {
+            const techArray = tech.split(',');
+            techArray.forEach(t => {
+                const span = document.createElement('span');
+                span.className = 'px-3 py-1 text-xs font-medium bg-purple-500/20 text-purple-300 rounded-full border border-purple-500/30';
+                span.innerText = t.trim();
+                modalTech.appendChild(span);
+            });
+        }
+    }
+
+    // 4. Show Modal
+    modal.classList.remove('hidden');
+    setTimeout(() => {
+        modal.classList.add('active');
+    }, 10);
+    document.body.style.overflow = 'hidden'; // Stop background scrolling
+}
+
+window.closeModal = function() {
+    const modal = document.getElementById('projectModal');
+    if(modal) {
+        modal.classList.remove('active');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }, 300);
+    }
+}
+
+// Close on Outside Click
+window.addEventListener('click', (e) => {
+    const modal = document.getElementById('projectModal');
+    if (modal && e.target === modal && !modal.classList.contains('hidden')) {
+        window.closeModal();
+    }
+});
+
+// Close on Escape Key
+document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('projectModal');
+    if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+        window.closeModal();
+    }
 });
