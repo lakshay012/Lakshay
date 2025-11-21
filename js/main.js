@@ -25,14 +25,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (activeSection) activeSection.classList.add('active');
         if (activeLink) activeLink.classList.add('active');
     }
-
-    let initialPage = 'about';
-    if (window.location.hash) {
-        const pageId = window.location.hash.substring(1);
-        if (document.getElementById(pageId)) initialPage = pageId;
+    // =========================================
+    window.scrollTo(0, 0);
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
     }
+    let initialPage = 'about';
+    history.replaceState(null, null, ' ');
     showPage(initialPage);
-    
+    // ==========================================
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
