@@ -96,7 +96,7 @@ window.openModal = function(element) {
 
     // Safety Check: Does the modal exist in HTML?
     if (!modal) {
-        alert("Error: Modal HTML not found! Did you paste the HTML code at the bottom of index.html?");
+        alert("Error: Modal HTML not found!");
         return;
     }
 
